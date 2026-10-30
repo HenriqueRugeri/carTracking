@@ -1,0 +1,121 @@
+
+/* Fundo do modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+
+    background: rgba(5, 20, 30, 0.75);
+    backdrop-filter: blur(5px);
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Caixa branca */
+.modal-conteudo {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 34px;
+    border-radius: 20px;
+    position: relative;
+    color: #17283a;
+}
+
+
+.fechar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    border: none;
+    background: #f0f2f5;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.icone {
+    background: #eaf0ff;
+    color: #2160f5;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-conteudo small {
+    color: #8493a3;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.modal-conteudo h2 {
+    margin: 8px 0;
+    font-size: 24px;
+}
+
+.modal-conteudo p {
+    color: #758397;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.modal-conteudo label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #536274;
+}
+
+.modal-conteudo input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #e0e6ed;
+    border-radius: 11px;
+    background: #f9fafb;
+    margin-bottom: 18px;
+    font-size: 13px;
+}
+
+.linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.btn-adicionar {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 11px;
+    background: #2160f5;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.btn-adicionar:hover {
+    background: #124bd0;
+}
+
+@media (max-width: 500px) {
+    .modal-conteudo {
+        padding: 25px 20px;
+    }
+
+    .linha {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

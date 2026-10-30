@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarTracking</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <header> 
+     <h2>CarTracking</h2>
+        <p>Seu carro, sua historia</p>
+     <img src="cartracking.jpg" alt="logo Cartrecking ">
+         <button onclick="abrirModal()">
+            + Novo registro
+        </button>
+         </header>
+
+    <div class="menu">
+        <a href="#">Visão geral</a>
+        <a href="#">Meu veiculo</a>
+        <a href="#">Historico</a>
+        <a href="#">Alerta</a>
+        <a href="#">Documentos</a>
+        <a href="#">Configurações</a>
+        <p>Usuario</p>
+     </div>
+
+    <div id="carro">
+        </div>
+
+        <div id="revisao">
+        </div>
+
+     <div class="conteudo">
+        <h1>Óla ! seu carro está em dia.</h1>
+
+        <h2>Historico recente</h2>
+        <div class="Caixa"></div>
+
+        <h2>Próximo Alerta</h2>
+        <div class="Caixa"></div>
+
+        <h2>Valor de revenda</h2>
+        <div class="caixa">
+          <p>Seu historico vale mais.</p>
+          <p>veiculo com historico completo valorizam até 8% na revenda</p>
+          <p class="">Estimativa atual</p>
+          <h2 class="Valor">R$</h2>
+    </div>
+       </div>
+
+<div id="modalManutencao" class="modal">
+
+    <div class="modal-conteudo">
+
+        <button class="fechar" onclick="fecharModal()">×</button>
+
+        <div class="icone">🔧</div>
+
+        <small>NOVO REGISTRO</small>
+
+        <h2>Adicionar manutenção</h2>
+
+        <p>Mantenha o prontuário do seu veículo sempre completo.</p>
+
+        <form onsubmit="historico(event)">
+
+            <label>Serviço realizado</label>
+            <input type="text" id="tipoRevisao" placeholder="Ex.: Troca de óleo e filtro" required>
+
+            <div class="linha">
+                <div>
+                    <label>Data</label>
+                    <input type="date" id="dataRevisao" required>
+                </div>
+
+                <div>
+                    <label>Quilometragem</label>
+                    <input type="number" id="kmRevisao" placeholder="48.620 km" required>
+                </div>
+            </div>
+
+            <label>Oficina ou prestador</label>
+            <input type="text" id="oficina" placeholder="Nome do estabelecimento">
+
+            <button type="submit" class="btn-adicionar">
+                Adicionar ao histórico
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<!-- Local onde aparecerá o histórico -->
+<div id="historico"></div>
+
+      
+</body>
+</html>
