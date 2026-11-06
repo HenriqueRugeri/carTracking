@@ -1919,3 +1919,38 @@ tbody tr:hover {
     }
 
 }
+
+/* Ajustes dos componentes gerados dinamicamente pelo JavaScript */
+.table-subtext {
+    display: block;
+    margin-top: 4px;
+    color: var(--gray-500);
+    font-size: 10px;
+}
+
+.danger-text {
+    color: var(--red) !important;
+}
+
+.danger-text:hover {
+    color: #a91f2b !important;
+}
+
+.compact-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compact-item strong {
+    font-size: 11px;
+}
+
+.compact-item small {
+    color: var(--gray-500);
+    font-size: 10px;
+}
+
+.reminder-card > button {
+    flex-shrink: 0;
+}

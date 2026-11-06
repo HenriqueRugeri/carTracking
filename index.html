@@ -1,53 +1,1148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <img src="cartracking.jpg" alt="logo Cartrecking ">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CarTracking - controle completo do seu veículo.">
+  <title>CarTracking | Gestão do seu veículo</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 </head>
+
 <body>
-    <title>CarTracking</title>
 
-    <div class="menu">
+  <div class="app-shell">
 
-        <h2>CarTracking</h2>
-        <p>Seu carro, sua historia</p>
-        <a href="#">Visão geral</a>
-        <a href="#">Meu veiculo</a>
-        <a href="#">Historico</a>
-        <a href="#">Alerta</a>
-        <a href="#">Documentos</a>
-        <a href="#">Configurações</a>
-        <p>Usuario</p>
-     </div>
+    <aside class="sidebar" id="sidebar">
 
-     <div class="conteudo">
-        <h1>Óla, Usuario! seu carro está em dia.</h1>
+      <a class="brand" href="#" aria-label="CarTracking início">
+        <img src="cartracking.jpg" alt="Logo CarTracking">
+      </a>
 
-        <div class="carro">
-            <h2></h2>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+      <div class="sidebar-label">MENU PRINCIPAL</div>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-link active" data-page="dashboard">
+          <i data-lucide="layout-dashboard"></i> Visão geral
+        </button>
+
+        <button class="nav-link" data-page="vehicles">
+          <i data-lucide="car"></i> Minha garagem
+        </button>
+
+        <button class="nav-link" data-page="maintenance">
+          <i data-lucide="wrench"></i> Manutenções
+        </button>
+
+        <button class="nav-link" data-page="documents">
+          <i data-lucide="folder"></i> Documentos
+        </button>
+
+        <button class="nav-link" data-page="fuel">
+          <i data-lucide="fuel"></i> Abastecimento
+        </button>
+
+        <button class="nav-link" data-page="expenses">
+          <i data-lucide="wallet"></i> Despesas
+        </button>
+
+        <button class="nav-link" data-page="history">
+          <i data-lucide="history"></i> Histórico
+        </button>
+
+        <button class="nav-link" data-page="reminders">
+          <i data-lucide="bell"></i> Lembretes
+          <span class="nav-count" id="reminderCount">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="help-card">
+          <span class="help-icon">
+            <i data-lucide="life-buoy"></i>
+          </span>
+
+          <strong>Precisa de ajuda?</strong>
+          <p>Organize os cuidados com seu veículo em um só lugar.</p>
         </div>
 
-        <h2>Historico recente</h2>
-        <div class="Caixa"></div>
+        <div class="profile">
+          <div class="avatar">CT</div>
 
-        <h2>Próximo Alerta</h2>
-        <div class="Caixa"></div>
+          <div>
+            <strong>Meu perfil</strong>
+            <small>Usuário CarTracking</small>
+          </div>
 
-        <h2>Valor de revenda</h2>
-        <div class="caixa">
-          <p>Seu historico vale mais.</p>
-          <p>veiculo com historico completo valorizam até 8% na revenda</p>
-          <p class="">Estimativa atual</p>
-          <h2 class="Valor">R$</h2>
+          <i data-lucide="chevron-down" class="profile-chevron"></i>
+        </div>
+
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Abrir menu">
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="breadcrumb">
+          <span>CarTracking</span>
+          <i data-lucide="chevron-right"></i>
+          <strong id="breadcrumbCurrent">Visão geral</strong>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-button notification-button" id="topNotifications" aria-label="Ver lembretes">
+            <i data-lucide="bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+
+          <div class="top-avatar">CT</div>
+        </div>
+
+      </header>
+
+      <div class="page-wrap">
+
+        <section class="page-section active" id="page-dashboard">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">PAINEL DE CONTROLE</p>
+              <h1>Visão geral</h1>
+              <p class="muted">Acompanhe a saúde e os gastos do seu veículo.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="vehicleModal">
+              <i data-lucide="plus"></i> Adicionar veículo
+            </button>
+          </div>
+
+          <div class="welcome-banner">
+
+            <div class="welcome-copy">
+              <span class="banner-kicker">SEU VEÍCULO, SOB CONTROLE</span>
+
+              <h2>
+                Cuide do seu carro.<br>
+                <em>Sem perder nenhum detalhe.</em>
+              </h2>
+
+              <p>
+                Documentos, manutenções e despesas organizados em um só lugar.
+              </p>
+
+              <button class="btn btn-light" data-page-link="maintenance">
+                Registrar manutenção
+                <i data-lucide="arrow-up-right"></i>
+              </button>
+            </div>
+
+            <div class="banner-image">
+              
+              <img
+                src="assets/images/dashboard-banner.png"
+                alt="Imagem ilustrativa de um carro"
+                onerror="this.style.display='none'"
+              >
+
+              <div class="banner-car-placeholder">
+                <i data-lucide="car-front"></i>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section-title-row">
+            <div>
+              <h2>Resumo do veículo</h2>
+              <p class="muted">Informações atualizadas da sua garagem.</p>
+            </div>
+
+            <select id="dashboardVehicleSelect" class="select-control">
+              <option value="">Todos os veículos</option>
+            </select>
+          </div>
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Veículos cadastrados</span>
+                <span class="stat-icon blue">
+                  <i data-lucide="car-front"></i>
+                </span>
+              </div>
+              <strong id="statVehicles">0</strong>
+              <small>Na sua garagem</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Manutenções registradas</span>
+                <span class="stat-icon purple">
+                  <i data-lucide="wrench"></i>
+                </span>
+              </div>
+              <strong id="statMaintenance">0</strong>
+              <small>Serviços realizados</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Despesas registradas</span>
+                <span class="stat-icon orange">
+                  <i data-lucide="wallet"></i>
+                </span>
+              </div>
+              <strong id="statExpenses">R$ 0,00</strong>
+              <small>Gastos cadastrados</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Próximos lembretes</span>
+                <span class="stat-icon green">
+                  <i data-lucide="calendar-clock"></i>
+                </span>
+              </div>
+              <strong id="statReminders">0</strong>
+              <small>Itens para acompanhar</small>
+            </article>
+
+          </div>
+
+          <div class="dashboard-grid">
+
+            <article class="panel vehicle-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <h3>Meu veículo principal</h3>
+                  <p class="muted">Resumo cadastral</p>
+                </div>
+
+                <button class="text-button" data-page-link="vehicles">
+                  Ver garagem <i data-lucide="arrow-right"></i>
+                </button>
+              </div>
+
+              <div id="featuredVehicle" class="featured-vehicle empty-state">
+                <div class="empty-icon">
+                  <i data-lucide="car-front"></i>
+                </div>
+
+                <strong>Nenhum veículo cadastrado</strong>
+                <p>Adicione seu primeiro veículo para começar.</p>
+
+                <button class="btn btn-primary btn-small" data-open-modal="vehicleModal">
+                  Cadastrar veículo
+                </button>
+              </div>
+
+            </article>
+
+            <article class="panel reminders-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <h3>Próximos lembretes</h3>
+                  <p class="muted">Não perca os prazos importantes.</p>
+                </div>
+
+                <button class="text-button" data-page-link="reminders">
+                  Ver todos
+                </button>
+              </div>
+
+              <div id="dashboardReminders" class="compact-list">
+                <div class="empty-inline">Nenhum lembrete cadastrado.</div>
+              </div>
+
+            </article>
+
+          </div>
+
+          <div class="dashboard-grid lower-grid">
+
+            <article class="panel">
+
+              <div class="panel-heading">
+                <div>
+                  <h3>Últimas atividades</h3>
+                  <p class="muted">Movimentações recentes do veículo.</p>
+                </div>
+
+                <button class="text-button" data-page-link="history">
+                  Ver histórico
+                </button>
+              </div>
+
+              <div id="dashboardActivity" class="activity-list">
+                <div class="empty-inline">Suas atividades aparecerão aqui.</div>
+              </div>
+
+            </article>
+
+            <article class="panel spending-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <h3>Despesas registradas</h3>
+                  <p class="muted">Total de gastos cadastrados.</p>
+                </div>
+
+                <span class="stat-icon orange">
+                  <i data-lucide="chart-no-axes-column-increasing"></i>
+                </span>
+              </div>
+
+              <strong class="spending-total" id="dashboardSpending">R$ 0,00</strong>
+
+              <p class="muted small">
+                Soma das despesas e manutenções registradas.
+              </p>
+
+              <button class="btn btn-outline btn-full" data-page-link="expenses">
+                Acessar despesas
+              </button>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-vehicles">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">SUA GARAGEM DIGITAL</p>
+              <h1>Minha garagem</h1>
+              <p class="muted">Cadastre e gerencie todos os seus veículos.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="vehicleModal">
+              <i data-lucide="plus"></i> Novo veículo
+            </button>
+          </div>
+
+          <div class="toolbar">
+
+            <div class="search-box">
+              <i data-lucide="search"></i>
+              <input
+                id="vehicleSearch"
+                type="search"
+                placeholder="Buscar por modelo, marca ou placa..."
+              >
+            </div>
+
+            <span class="muted" id="vehicleTotal">0 veículos</span>
+
+          </div>
+
+          <div id="vehicleGrid" class="vehicle-grid">
+
+            <div class="empty-state wide">
+              <div class="empty-icon">
+                <i data-lucide="car-front"></i>
+              </div>
+
+              <strong>Sua garagem está vazia</strong>
+              <p>Cadastre um veículo para visualizar suas informações aqui.</p>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-maintenance">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">CUIDADOS COM O VEÍCULO</p>
+              <h1>Manutenções</h1>
+              <p class="muted">Registre serviços, peças, valores e próximas revisões.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="maintenanceModal">
+              <i data-lucide="plus"></i> Registrar manutenção
+            </button>
+          </div>
+
+          <div class="toolbar">
+
+            <div class="search-box">
+              <i data-lucide="search"></i>
+              <input
+                id="maintenanceSearch"
+                type="search"
+                placeholder="Buscar manutenção..."
+              >
+            </div>
+
+            <select id="maintenanceFilter" class="select-control">
+              <option value="">Todas as categorias</option>
+              <option>Motor</option>
+              <option>Freios</option>
+              <option>Suspensão</option>
+              <option>Pneus</option>
+              <option>Elétrica</option>
+              <option>Ar-condicionado</option>
+              <option>Fluidos</option>
+              <option>Outro</option>
+            </select>
+
+          </div>
+
+          <div class="panel table-panel">
+
+            <div class="table-wrap">
+              <table>
+
+                <thead>
+                  <tr>
+                    <th>Serviço</th>
+                    <th>Categoria</th>
+                    <th>Veículo</th>
+                    <th>Data</th>
+                    <th>Quilometragem</th>
+                    <th>Valor</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="maintenanceTable">
+                  <tr>
+                    <td colspan="7" class="table-empty">
+                      Nenhuma manutenção cadastrada.
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-documents">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">ARQUIVOS DO VEÍCULO</p>
+              <h1>Documentos</h1>
+              <p class="muted">Organize documentos, comprovantes e datas de vencimento.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="documentModal">
+              <i data-lucide="plus"></i> Adicionar documento
+            </button>
+          </div>
+
+          <div class="info-note">
+            <i data-lucide="shield-check"></i>
+            <span>
+              Protótipo acadêmico: os arquivos selecionados ficam associados ao registro local.
+              Não utilize documentos sensíveis nesta versão de demonstração.
+            </span>
+          </div>
+
+          <div id="documentGrid" class="document-grid">
+
+            <div class="empty-state wide">
+              <div class="empty-icon">
+                <i data-lucide="folder-open"></i>
+              </div>
+
+              <strong>Nenhum documento cadastrado</strong>
+              <p>Adicione CRLV, seguro, manual, notas fiscais e outros arquivos.</p>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-fuel">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">CONSUMO E COMBUSTÍVEL</p>
+              <h1>Abastecimento</h1>
+              <p class="muted">Acompanhe seus abastecimentos e o consumo do veículo.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="fuelModal">
+              <i data-lucide="plus"></i> Registrar abastecimento
+            </button>
+          </div>
+
+          <div class="stats-grid two-stats">
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Total abastecido</span>
+                <span class="stat-icon orange">
+                  <i data-lucide="fuel"></i>
+                </span>
+              </div>
+
+              <strong id="fuelTotal">R$ 0,00</strong>
+              <small>Valor acumulado</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Litros registrados</span>
+                <span class="stat-icon blue">
+                  <i data-lucide="droplet"></i>
+                </span>
+              </div>
+
+              <strong id="fuelLiters">0 L</strong>
+              <small>Volume acumulado</small>
+            </article>
+
+          </div>
+
+          <div class="panel table-panel">
+
+            <div class="panel-heading">
+              <div>
+                <h3>Histórico de abastecimentos</h3>
+                <p class="muted">Registros realizados.</p>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Veículo</th>
+                    <th>Combustível</th>
+                    <th>Litros</th>
+                    <th>Preço/L</th>
+                    <th>Total</th>
+                    <th>KM</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="fuelTable">
+                  <tr>
+                    <td colspan="8" class="table-empty">
+                      Nenhum abastecimento cadastrado.
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-expenses">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">CONTROLE FINANCEIRO</p>
+              <h1>Despesas</h1>
+              <p class="muted">Saiba quanto custa manter seu veículo.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="expenseModal">
+              <i data-lucide="plus"></i> Adicionar despesa
+            </button>
+          </div>
+
+          <div class="stats-grid two-stats">
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Total de despesas</span>
+                <span class="stat-icon orange">
+                  <i data-lucide="wallet"></i>
+                </span>
+              </div>
+
+              <strong id="expenseTotal">R$ 0,00</strong>
+              <small>Todos os registros</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span>Quantidade de registros</span>
+                <span class="stat-icon purple">
+                  <i data-lucide="receipt"></i>
+                </span>
+              </div>
+
+              <strong id="expenseCount">0</strong>
+              <small>Despesas cadastradas</small>
+            </article>
+
+          </div>
+
+          <div class="panel table-panel">
+
+            <div class="panel-heading">
+              <div>
+                <h3>Lista de despesas</h3>
+                <p class="muted">Valores informados pelo usuário.</p>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+
+                <thead>
+                  <tr>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Veículo</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="expenseTable">
+                  <tr>
+                    <td colspan="6" class="table-empty">
+                      Nenhuma despesa cadastrada.
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-history">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">LINHA DO TEMPO</p>
+              <h1>Histórico do veículo</h1>
+              <p class="muted">Consulte os registros feitos no CarTracking.</p>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <select id="historyVehicleFilter" class="select-control">
+              <option value="">Todos os veículos</option>
+            </select>
+          </div>
+
+          <div class="panel timeline-panel">
+            <div id="historyTimeline" class="timeline">
+              <div class="empty-inline">Seu histórico aparecerá aqui.</div>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="page-section" id="page-reminders">
+
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">NÃO PERCA OS PRAZOS</p>
+              <h1>Lembretes</h1>
+              <p class="muted">Acompanhe vencimentos e próximas manutenções.</p>
+            </div>
+
+            <button class="btn btn-primary" data-open-modal="reminderModal">
+              <i data-lucide="plus"></i> Criar lembrete
+            </button>
+          </div>
+
+          <div class="info-note">
+            <i data-lucide="bell-ring"></i>
+            <span>
+              Os lembretes são organizados pela data informada.
+              Consulte sempre o manual do fabricante para os intervalos corretos de manutenção.
+            </span>
+          </div>
+
+          <div id="reminderList" class="reminder-grid">
+
+            <div class="empty-state wide">
+              <div class="empty-icon">
+                <i data-lucide="calendar-check"></i>
+              </div>
+
+              <strong>Nenhum lembrete cadastrado</strong>
+              <p>Crie lembretes para não esquecer os cuidados com seu veículo.</p>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <footer class="footer">
+        <span>©️ <span id="currentYear"></span> CarTracking. Projeto acadêmico.</span>
+        <span>Organize. Acompanhe. Cuide.</span>
+      </footer>
+
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="vehicleModal" role="dialog" aria-modal="true" aria-labelledby="vehicleModalTitle">
+
+    <div class="modal modal-large">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">SUA GARAGEM</p>
+          <h2 id="vehicleModalTitle">Adicionar veículo</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="vehicleForm" class="form-grid">
+
+        <label class="field full">
+          <span>Nome de identificação *</span>
+          <input name="nickname" placeholder="Ex.: Meu carro" required>
+        </label>
+
+        <label class="field">
+          <span>Marca *</span>
+          <input name="brand" placeholder="Ex.: Toyota" required>
+        </label>
+
+        <label class="field">
+          <span>Modelo *</span>
+          <input name="model" placeholder="Ex.: Corolla" required>
+        </label>
+
+        <label class="field">
+          <span>Ano fabricação</span>
+          <input name="year" type="number" min="1950" max="2100" placeholder="2022">
+        </label>
+
+        <label class="field">
+          <span>Ano/modelo</span>
+          <input name="modelYear" type="number" min="1950" max="2100" placeholder="2023">
+        </label>
+
+        <label class="field">
+          <span>Placa</span>
+          <input name="plate" placeholder="ABC1D23" maxlength="8">
+        </label>
+
+        <label class="field">
+          <span>Quilometragem atual (km)</span>
+          <input name="km" type="number" min="0" placeholder="45000">
+        </label>
+
+        <label class="field">
+          <span>Combustível</span>
+          <select name="fuel">
+            <option value="">Selecione</option>
+            <option>Flex</option>
+            <option>Gasolina</option>
+            <option>Etanol</option>
+            <option>Diesel</option>
+            <option>GNV</option>
+            <option>Elétrico</option>
+            <option>Híbrido</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Cor</span>
+          <input name="color" placeholder="Ex.: Prata">
+        </label>
+
+        <label class="field full">
+          <span>Observações</span>
+          <textarea name="notes" rows="2" placeholder="Informações adicionais..."></textarea>
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar veículo</button>
+        </div>
+
+      </form>
     </div>
-       </div>
+  </div>
+
+  <div class="modal-backdrop" id="maintenanceModal" role="dialog" aria-modal="true" aria-labelledby="maintenanceModalTitle">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">HISTÓRICO DE SERVIÇOS</p>
+          <h2 id="maintenanceModalTitle">Registrar manutenção</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="maintenanceForm" class="form-grid">
+
+        <label class="field full">
+          <span>Veículo *</span>
+          <select name="vehicleId" class="vehicle-options" required></select>
+        </label>
+
+        <label class="field full">
+          <span>Nome do serviço *</span>
+          <input name="title" placeholder="Ex.: Troca de óleo do motor" required>
+        </label>
+
+        <label class="field">
+          <span>Categoria</span>
+          <select name="category">
+            <option>Motor</option>
+            <option>Freios</option>
+            <option>Suspensão</option>
+            <option>Pneus</option>
+            <option>Elétrica</option>
+            <option>Ar-condicionado</option>
+            <option>Fluidos</option>
+            <option>Outro</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Data *</span>
+          <input name="date" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Quilometragem (km)</span>
+          <input name="km" type="number" min="0" placeholder="45000">
+        </label>
+
+        <label class="field">
+          <span>Valor (R$)</span>
+          <input name="cost" type="number" min="0" step="0.01" placeholder="350.00">
+        </label>
+
+        <label class="field">
+          <span>Oficina / estabelecimento</span>
+          <input name="shop" placeholder="Nome da oficina">
+        </label>
+
+        <label class="field">
+          <span>Próxima manutenção (data)</span>
+          <input name="nextDate" type="date">
+        </label>
+
+        <label class="field">
+          <span>Próxima manutenção (km)</span>
+          <input name="nextKm" type="number" min="0" placeholder="55000">
+        </label>
+
+        <label class="field full">
+          <span>Peças, produtos e observações</span>
+          <textarea name="notes" rows="3" placeholder="Descreva os itens utilizados..."></textarea>
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar manutenção</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="documentModal" role="dialog" aria-modal="true" aria-labelledby="documentModalTitle">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">ARQUIVOS</p>
+          <h2 id="documentModalTitle">Adicionar documento</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="documentForm" class="form-grid">
+
+        <label class="field full">
+          <span>Veículo *</span>
+          <select name="vehicleId" class="vehicle-options" required></select>
+        </label>
+
+        <label class="field">
+          <span>Tipo de documento *</span>
+          <select name="type">
+            <option>CRLV-e</option>
+            <option>Seguro</option>
+            <option>IPVA</option>
+            <option>Licenciamento</option>
+            <option>Nota fiscal</option>
+            <option>Manual</option>
+            <option>Laudo cautelar</option>
+            <option>Comprovante</option>
+            <option>Outro</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Nome do documento *</span>
+          <input name="title" placeholder="Ex.: CRLV 2026" required>
+        </label>
+
+        <label class="field">
+          <span>Data de vencimento</span>
+          <input name="dueDate" type="date">
+        </label>
+
+        <label class="field">
+          <span>Arquivo (opcional)</span>
+          <input name="file" type="file" accept=".pdf,image/*">
+        </label>
+
+        <label class="field full">
+          <span>Observações</span>
+          <textarea name="notes" rows="2" placeholder="Informações adicionais..."></textarea>
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar documento</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="fuelModal" role="dialog" aria-modal="true" aria-labelledby="fuelModalTitle">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">CONSUMO</p>
+          <h2 id="fuelModalTitle">Registrar abastecimento</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="fuelForm" class="form-grid">
+
+        <label class="field full">
+          <span>Veículo *</span>
+          <select name="vehicleId" class="vehicle-options" required></select>
+        </label>
+
+        <label class="field">
+          <span>Data *</span>
+          <input name="date" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Combustível</span>
+          <select name="fuelType">
+            <option>Gasolina</option>
+            <option>Etanol</option>
+            <option>Diesel</option>
+            <option>GNV</option>
+            <option>Outro</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Litros *</span>
+          <input name="liters" type="number" min="0.01" step="0.01" required>
+        </label>
+
+        <label class="field">
+          <span>Preço por litro (R$)</span>
+          <input name="price" type="number" min="0" step="0.001">
+        </label>
+
+        <label class="field">
+          <span>Valor total (R$) *</span>
+          <input name="total" type="number" min="0" step="0.01" required>
+        </label>
+
+        <label class="field">
+          <span>Quilometragem (km)</span>
+          <input name="km" type="number" min="0">
+        </label>
+
+        <label class="field full">
+          <span>Posto / observações</span>
+          <input name="station" placeholder="Nome do posto">
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar abastecimento</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="expenseModal" role="dialog" aria-modal="true" aria-labelledby="expenseModalTitle">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">CONTROLE FINANCEIRO</p>
+          <h2 id="expenseModalTitle">Adicionar despesa</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="expenseForm" class="form-grid">
+
+        <label class="field full">
+          <span>Veículo *</span>
+          <select name="vehicleId" class="vehicle-options" required></select>
+        </label>
+
+        <label class="field full">
+          <span>Descrição *</span>
+          <input name="title" placeholder="Ex.: Estacionamento" required>
+        </label>
+
+        <label class="field">
+          <span>Categoria</span>
+          <select name="category">
+            <option>Combustível</option>
+            <option>Manutenção</option>
+            <option>Documentação</option>
+            <option>Seguro</option>
+            <option>Estacionamento</option>
+            <option>Pedágio</option>
+            <option>Limpeza</option>
+            <option>Multa</option>
+            <option>Outro</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Data *</span>
+          <input name="date" type="date" required>
+        </label>
+
+        <label class="field">
+          <span>Valor (R$) *</span>
+          <input name="cost" type="number" min="0" step="0.01" required>
+        </label>
+
+        <label class="field">
+          <span>Forma de pagamento</span>
+          <select name="payment">
+            <option>Não informado</option>
+            <option>Pix</option>
+            <option>Dinheiro</option>
+            <option>Cartão de débito</option>
+            <option>Cartão de crédito</option>
+            <option>Transferência</option>
+          </select>
+        </label>
+
+        <label class="field full">
+          <span>Observações</span>
+          <textarea name="notes" rows="2"></textarea>
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar despesa</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="reminderModal" role="dialog" aria-modal="true" aria-labelledby="reminderModalTitle">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">AGENDA DO VEÍCULO</p>
+          <h2 id="reminderModalTitle">Criar lembrete</h2>
+        </div>
+
+        <button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form id="reminderForm" class="form-grid">
+
+        <label class="field full">
+          <span>Veículo *</span>
+          <select name="vehicleId" class="vehicle-options" required></select>
+        </label>
+
+        <label class="field full">
+          <span>O que precisa ser feito? *</span>
+          <input name="title" placeholder="Ex.: Trocar óleo" required>
+        </label>
+
+        <label class="field">
+          <span>Data prevista</span>
+          <input name="date" type="date">
+        </label>
+
+        <label class="field">
+          <span>Quilometragem prevista</span>
+          <input name="km" type="number" min="0" placeholder="50000">
+        </label>
+
+        <label class="field full">
+          <span>Observações</span>
+          <textarea name="notes" rows="2"></textarea>
+        </label>
+
+        <div class="form-actions full">
+          <button type="button" class="btn btn-outline close-modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Salvar lembrete</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
 
 </body>
 </html>
