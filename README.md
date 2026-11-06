@@ -1,6 +1,6 @@
 # carTracking
 
-Professor orientador: Sedenilso Antonio Machado\
+Professor orientador: Sedenilso Antonio Machado
 
 Disciplina: Design profissional\
 Curso: Engenharia de software\
